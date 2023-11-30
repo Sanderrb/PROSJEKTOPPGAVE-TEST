@@ -1,5 +1,4 @@
 package edu.ntnu.stud;
-
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ public class TrainDispatchSystem {
     // Legger til en ny togavgang
     public boolean addTrainDeparture(TrainDeparture departure) {
         if (departures.stream().anyMatch(d -> d.getTrainNumber().equals(departure.getTrainNumber()))) {
-            return false; // Tognummeret finnes allerede
+            return false; // Tognummeret finnes allerede, kan dermed ikke sette inn
         }
         departures.add(departure);
         departures.sort(Comparator.comparing(TrainDeparture::getDepartureTime));
@@ -94,7 +93,7 @@ public class TrainDispatchSystem {
 
     // Viser togavganger som er planlagt etter nåværende tidspunkt
     public void displayDeparturesAfterCurrentTime() {
-        LocalTime current = LocalTime.parse(currentTime);
+        LocalTime current = currentTime;
 
         List<TrainDeparture> filteredDepartures = departures.stream()
                 .filter(departure -> LocalTime.parse(departure.getDepartureTime()).isAfter(current))

@@ -1,3 +1,4 @@
+package edu.ntnu.stud;
 public class TrainDeparture {
     private String departureTime;
     private String line;

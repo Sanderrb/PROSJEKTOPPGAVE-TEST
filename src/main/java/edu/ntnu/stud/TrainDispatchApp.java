@@ -1,5 +1,4 @@
 package edu.ntnu.stud;
-
 import java.util.List;
 import java.util.Scanner;
 
